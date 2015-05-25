@@ -1,3 +1,8 @@
+/**
+ *A simple calculator with GUI
+ *@author Rafael Cheng
+ *Haven't finished yet
+ */
 import java.awt.*;
 import java.awt.event.*;
 
