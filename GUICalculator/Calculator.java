@@ -1,9 +1,16 @@
 /**
  *A simple calculator with GUI
  *@author Rafael Cheng
- *Haven't finished yet
- *What to do next: available for long int and negative numbers.
+ *Haven't finished yet(Know not how to do actually:( )
+ *The remaining problem is:
+ *1. How to calculate continuously without press "=" button;
+ *2. How to support unary operator;
+ *What's more: Regular Expression
  *last change 2015.5.26
+ *Ability:
+ *1. Calculate number of type int and double. (some problems exists when calculating double number)
+ *2. Operator support: addition, subtraction, multiplication and division.
+ *3. Use EC to clear data.
  */
 import java.awt.*;
 import java.awt.event.*;
@@ -15,15 +22,23 @@ public class Calculator {
 }
 
 class MyFrame extends Frame {
-	MyFrame ref = this; //reference of this class, used to invoke the lanunch method continuously.
-	ActionEvent actevt; //a reference of ActionEvent, used to distinguish "."
-	TextField tf = new TextField(15); //set the size of textfield.
-	String s; //Array to store the name of each button.
+	MyFrame ref = this; 
+	ActionEvent actevt; 
+	TextField tf = new TextField(15); 
+	String s; 
 	double num1, num1f, num1b, num2, num2f, num2b, result, mm = 1; 
-	//the number used, f:integer part b:decimal part; mm multiplies itself every time than multiply number to get decimal part.
-	int operator, bit; //the number operator stands; bit is about decimal point.
-	boolean flag, jump; //two flags.
-
+	int operator, bit; 
+	boolean flag, jump; 
+    /**Innotation.
+	 *ref is a reference of this class, it's used to invoke the launch method;
+	 *actevt is a reference of an ActionListener, it's used to distinguish ".";
+	 *String s is used to store buttons' names;
+	 *num1, num2 and result is the 1st input number, the 2nd and the result after the operation.
+	 *num1f is the integer part of num1 and num1b is the decimal part of num1. so are num2f and num2b;
+	 *bit is a symbol for decimal point;
+	 *flag is for distinguishing the 1st and the 2nd number;
+	 *jump works for checking decimal point.
+	 */
 	MyFrame(String s) {
 		super(s);
 		Panel pn1 = new Panel();
@@ -123,9 +138,9 @@ class MyFrame extends Frame {
 				flag = true; //once an operator occured, alter the value of the othe number.
 			}else if(s.equals("-")) {
 				operator = 2;
-				mm = 1;
-				bit = 0;
-				flag = true;
+			    mm = 1;
+			    bit = 0;
+			    flag = true;
 			}else if(s.equals("x") || s.equals("X")) {
 				operator = 3;
 				mm = 1;
