@@ -3,7 +3,7 @@
  *@author Rafael Cheng
  *Haven't finished yet
  *What to do next is make sure that it can calculate continuously.
- *last change 2015.5.25
+ *last change 2015.5.26
  */
 import java.awt.*;
 import java.awt.event.*;
@@ -58,14 +58,15 @@ class MyFrame extends Frame {
 			System.exit(0);
 		}
 	}
-	private class ButtonMonitor implements ActionListener {
+	class ButtonMonitor implements ActionListener {
 		
 		public void actionPerformed(ActionEvent e) {
 			if(e.getActionCommand().equals("EC")) {
+				flag = false;
+				num1 = num2 = result = 0;
 				tf.setText("0");
 			}else{
 				s = e.getActionCommand();
-			    tf.setText(s);
 				ref.launch();//Keep running
 			}
 		}
@@ -73,9 +74,11 @@ class MyFrame extends Frame {
 	void launch() {//This try&catch is used to distinguish num&operator 
 		try {
 			if(!flag) {
-			    num1 = Integer.parseInt(s);
+			    num1 = (10 * num1) + Integer.parseInt(s);
+				tf.setText("" + num1);
 			}else {
-				num2 = Integer.parseInt(s);
+				num2 = (10 * num2) + Integer.parseInt(s);
+				tf.setText("" + num2);
 			}
 		}catch (Exception e) {
 			if(s.equals("+")) {
@@ -92,14 +95,18 @@ class MyFrame extends Frame {
 				flag = true;
 			}else if(s.equals("=")) {
 				switch(operator) {
-					case 1:tf.setText("" + (num1 + num2));
-					       break;
-					case 2:tf.setText("" + (num1 - num2));
-					       break;
-					case 3:tf.setText("" + (num1 * num2));
-					       break;
-					case 4:tf.setText("" + (num1 / num2));
-					       break;
+					case 1: result = num1 + num2;
+					        tf.setText("" + result);
+					        break;
+					case 2: result = num1 - num2;
+					        tf.setText("" + result);
+					        break;
+					case 3: result = num1 * num2;
+					        tf.setText("" + result);
+					        break;
+					case 4: result = num1 / num2;
+					        tf.setText("" + result);
+					        break;
 					default:break;
 				}
 			}
