@@ -3,8 +3,6 @@ import java.util.regex.*;
  *MyCalTestDriver
  *@Author Rafael Cheng
  */
-
-
 public class MyCalTestDriver{
 	public static void main(String[] args){
 		if(args.length != 3){
@@ -17,7 +15,7 @@ public class MyCalTestDriver{
 				cal.add(Integer.parseInt(args[0]), Integer.parseInt(args[2]));
 			}else if(args[1].equals("-")){
 				cal.minus(Integer.parseInt(args[0]), Integer.parseInt(args[2]));
-			}else if(args[1].equals("x") || args[1].equals("X)){
+			}else if(args[1].equals("x") || args[1].equals("X")){
 				cal.multiply(Integer.parseInt(args[0]), Integer.parseInt(args[2]));
 			}else{
 				cal.division(Integer.parseInt(args[0]), Integer.parseInt(args[2]));
