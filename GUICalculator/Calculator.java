@@ -97,31 +97,26 @@ class MyFrame extends Frame {
 			if(!flag && actevt.getActionCommand().equals(".")) { //test decimal point of the 1st nummber.
 				bit = 1;
 				jump = true;
-				System.out.println("line:86");
 			}
 			if(!flag && bit == 0) { //1st number's integer part.
 			    num1f = (10 * num1f) + Integer.parseInt(s);
 				num1 = num1f + num1b;
 				tf.setText("" + num1);
-				System.out.println("line:92");
 			}
 			if(!flag && bit == 1 && (!jump)) { //1st number's decimal part.
 				mm *= 0.1;
 				num1b = num1b + (mm * Integer.parseInt(s));
 				num1 = num1f + num1b;
 				tf.setText("" + num1);
-				System.out.println("line:99");
 			}
 			if(flag && actevt.getActionCommand().equals(".")) { //test decimal point of the 2nd number.
 				bit = 2;
 				jump = true;
-				System.out.println("line:104");
 			}
 			if(flag && bit == 0) { //2nd number's integer part.
 				num2f = (10 * num2f) + Integer.parseInt(s);
 				num2 = num2f + num2b;
 				tf.setText("" + num2);
-				System.out.println("line:110");
 			}
 			if(flag && bit == 2 && (!jump)) { //2nd number's decimal part.
 				mm *= 0.1;
@@ -130,7 +125,6 @@ class MyFrame extends Frame {
 				tf.setText("" +num2);
 			}
 		}catch (NumberFormatException e) { //when the input is not number or decimal point.
-			System.out.println("line:119");
 			if(s.equals("+")) {
 				operator = 1;
 				mm = 1;
