@@ -30,15 +30,15 @@ class MyFrame extends Frame {
 	int operator, bit; 
 	boolean flag, jump; 
     /**Innotation.
-	 *ref is a reference of this class, it's used to invoke the launch method;
-	 *actevt is a reference of an ActionListener, it's used to distinguish ".";
-	 *String s is used to store buttons' names;
-	 *num1, num2 and result is the 1st input number, the 2nd and the result after the operation.
-	 *num1f is the integer part of num1 and num1b is the decimal part of num1. so are num2f and num2b;
-	 *bit is a symbol for decimal point;
-	 *flag is for distinguishing the 1st and the 2nd number;
-	 *jump works for checking decimal point.
-	 */
+     *ref is a reference of this class, it's used to invoke the launch method;
+     *actevt is a reference of an ActionListener, it's used to distinguish ".";
+     *String s is used to store buttons' names;
+     *num1, num2 and result is the 1st input number, the 2nd and the result after the operation.
+     *num1f is the integer part of num1 and num1b is the decimal part of num1. so are num2f and num2b;
+     *bit is a symbol for decimal point;
+     *flag is for distinguishing the 1st and the 2nd number;
+     *jump works for checking decimal point.
+     */
 	MyFrame(String s) {
 		super(s);
 		Panel pn1 = new Panel();
