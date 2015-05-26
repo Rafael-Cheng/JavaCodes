@@ -2,7 +2,7 @@
  *A simple calculator with GUI
  *@author Rafael Cheng
  *Haven't finished yet
- *What to do next is make sure that it can calculate continuously.
+ *What to do next: available for long int and double.
  *last change 2015.5.26
  */
 import java.awt.*;
@@ -26,8 +26,8 @@ class MyFrame extends Frame {
 		Panel pn2 = new Panel();
 		Panel pn3 = new Panel();
 		Panel pn4 = new Panel();
-		final String[] name = {"0", "1", "2", "3", "4", "5", "6", "7", 
-		"8", "9", "=", ".", "EC", "+", "-", "x", "/"};//strs for buttons
+		final String[] name = {"7", "8", "9", "4", "5", "6", "1", "2", 
+		"3", "0", ".", "=", "EC", "+", "-", "x", "/"};//strs for buttons
 		Button[] button = new Button[name.length];
 		for(int i = 0; i < button.length; i++) {
 			button[i] = new Button("" + name[i]);
@@ -90,21 +90,25 @@ class MyFrame extends Frame {
 			}else if(s.equals("x") || s.equals("X")) {
 				operator = 3;
 				flag =true;
-			}else if(s.equals("\\")) {
+			}else if(s.equals("/")) {
 				operator = 4;
 				flag = true;
 			}else if(s.equals("=")) {
 				switch(operator) {
-					case 1: result = num1 + num2;
+					case 1: num1 = result = num1 + num2;
+					        num2 = 0;
 					        tf.setText("" + result);
 					        break;
-					case 2: result = num1 - num2;
+					case 2: num1 = result = num1 - num2;
+					        num2 = 0;
 					        tf.setText("" + result);
 					        break;
-					case 3: result = num1 * num2;
+					case 3: num1 = result = num1 * num2;
+					        num2 = 0;
 					        tf.setText("" + result);
 					        break;
-					case 4: result = num1 / num2;
+					case 4: num1 = result = num1 / num2;
+					        num2 = 0;
 					        tf.setText("" + result);
 					        break;
 					default:break;
